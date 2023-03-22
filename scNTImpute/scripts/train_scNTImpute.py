@@ -32,12 +32,11 @@ if __name__ == '__main__':
         dpi=args.dpi_show, dpi_save=args.dpi_save, facecolor='white', fontsize=args.fontsize, figsize=args.figsize)
 
     # load dataset
-    mp_csv = ['mouse.csv']
+    mp_csv = ['']
     mp_adatas = []
     for fpath in mp_csv:
-        df = pd.read_csv(fpath, index_col=0)  # 源文件的第一列作为索引
-        adata_1 = ad.AnnData(X=df.iloc[:, 4:], obs=df.iloc[:, :4])
-        mp_adatas.append(adata_1)
+        df = pd.read_csv(fpath, index_col=0)
+        mp_adatas.append(df)
     adata = ad.concat(mp_adatas, label="batch_indices")
     adata.obs_names_make_unique()
     adata.obs['total_counts'] = adata.X.sum(1)

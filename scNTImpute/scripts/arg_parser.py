@@ -17,7 +17,7 @@ parser.add_argument('--n-topics', type=int, default=50, help='number of topics i
 parser.add_argument('--no-batch-bias', action='store_false', dest='batch_bias', help='enable batch-specific bias')
 parser.add_argument('--global-bias', action='store_true', help='enable global gene bias')
 parser.add_argument('--adv-loss', choices=('reverse', 'confuse'), default='reverse')
-parser.add_argument('--dthre', type=float, default=0.7, help="Threshold of gene undetected rate")
+parser.add_argument('--dthre', type=float, default=0.6, help="Threshold of gene undetected rate")
 
 # Loss parameters
 parser.add_argument('--g-steps', type=int, default=1)

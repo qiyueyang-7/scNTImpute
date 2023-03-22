@@ -33,22 +33,20 @@ if __name__ == '__main__':
     matplotlib.use('Agg')
     sc.settings.set_figure_params(
         dpi=args.dpi_show, dpi_save=args.dpi_save, facecolor='white', fontsize=args.fontsize, figsize=args.figsize)
-    mp_csv = ['mouse.csv']
+    mp_csv = ['']
     mp_adatas = []
     for fpath in mp_csv:
         df = pd.read_csv(fpath, index_col=0)
-        adata_1 = ad.AnnData(X=df.iloc[:, 2:], obs=df.iloc[:, :2])
-        mp_adatas.append(adata_1)
+        mp_adatas.append(df)
     adata = ad.concat(mp_adatas, label="batch_indices")
     adata.obs_names_make_unique()
     adata.obs['total_counts'] = adata.X.sum(1)
 
-    hp_csv = ['human.csv']
+    hp_csv = ['']
     hp_adatas = []
     for fpath in hp_csv:
         df_1 = pd.read_csv(fpath, index_col=0)
-        adata_2 = ad.AnnData(X=df_1.iloc[:, 2:], obs=df_1.iloc[:, :2])
-        hp_adatas.append(adata_2)
+        hp_adatas.append(df_1)
     hp = ad.concat(hp_adatas, label="batch_indices")
     hp.obs_names_make_unique()
     hp.obs['total_counts'] = hp.X.sum(1)

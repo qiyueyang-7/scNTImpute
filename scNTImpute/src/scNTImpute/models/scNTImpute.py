@@ -264,7 +264,7 @@ class scNTImpute(BaseCellModel):
         f1 = np.argwhere(np.isnan(recon_log))
         for i in range(len(f1)):
             number_cells_tobe_interpolated = f1[i, 0]
-            min_value= min(filter(lambda x : x > 0, cell_distance[number_cells_tobe_interpolated, :]))
+            min_value = min(filter(lambda x : x > 0, cell_distance[number_cells_tobe_interpolated, :]))
             similar_cell_number = np.argwhere(cell_distance[number_cells_tobe_interpolated, :] == min_value)
             while (np.isnan(recon_log[similar_cell_number, f1[i, 1]])).all():
                 similar_cell_number = np.argwhere(cell_distance[number_cells_tobe_interpolated, :]
@@ -353,7 +353,7 @@ class scNTImpute(BaseCellModel):
                 recon_logit += self.batch_bias[batch_indices]
             recon_log = F.log_softmax(recon_logit, dim=-1)
         if self.n_epoch - 2 == n_epoch:
-            with parallel_backend('threading', n_jobs=6,):  # 并行计算
+            with parallel_backend('threading', n_jobs=6,):
                 dayin = Parallel()(
                     delayed(self.new_calculate_lanta)(
                         qi___five[i, :], genes_cells[i, :]
@@ -372,7 +372,7 @@ class scNTImpute(BaseCellModel):
             distance_cells = self.calculate_distance_cells(theta)
             loss = (torch.sqrt((self.loglik_initial_value.to(self.device) - loglik_transition) ** 2)).mean()
             self.loglik_initial_value = loglik_transition
-            self.adata_scNTImpute.X = self.drop_imputation(distance_cells, dayin,torch.tensor(self.adata_scNTImpute.X).to(self.device))
+            self.adata_scNTImpute.X = self.drop_imputation(distance_cells, dayin, torch.tensor(self.adata_scNTImpute.X).to(self.device))
             return recon_log, loss, self.adata_scNTImpute.X
         else:
             with parallel_backend('threading', n_jobs=6,):
@@ -421,7 +421,6 @@ class scNTImpute(BaseCellModel):
             scale=logsigma_q_delta.exp()
         ), 1)
         delta = q_delta.rsample()
-
         theta = F.softmax(delta, dim=-1)
         library_genes = cells.sum(0, keepdims=True) + 1
         genes_1 = cells / library_genes + 1.01

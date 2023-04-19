@@ -32,11 +32,12 @@ if __name__ == '__main__':
         dpi=args.dpi_show, dpi_save=args.dpi_save, facecolor='white', fontsize=args.fontsize, figsize=args.figsize)
 
     # load dataset
-    mp_csv = ['']
+    mp_csv = ['mouse.csv']
     mp_adatas = []
     for fpath in mp_csv:
         df = pd.read_csv(fpath, index_col=0)
-        mp_adatas.append(df)
+        adata_1 = ad.AnnData(X=df.iloc[:, 2:], obs=df.iloc[:, :2])
+        mp_adatas.append(adata_1)
     adata = ad.concat(mp_adatas, label="batch_indices")
     adata.obs_names_make_unique()
     adata.obs['total_counts'] = adata.X.sum(1)
@@ -52,10 +53,6 @@ if __name__ == '__main__':
             logger.info(f'{mat.shape[1]} dimensions of the gene embeddings will be trainable. Keeping all genes in the dataset') 
             mat = mat.reindex(index=adata.var_names, fill_value=0.0)
             adata.varm['gene_emb'] = mat.values
-
-    # if hasattr(args, 'color_by') and (hasattr(args, 'no_draw') and not args.no_draw) and (hasattr(args, 'no_eval') and not args.no_eval):
-    #     for col_name in args.color_by:
-    #         assert col_name in adata.obs, f"{col_name} in args.color_by but not in adata.obs"
 
     start_mem = psutil.Process().memory_info().rss
     logger.info(f'Before model instantiation and training: {psutil.Process().memory_info()}')
@@ -150,7 +147,7 @@ if __name__ == '__main__':
         record_log_path = os.path.join(trainer.ckpt_dir, 'record.tsv'),
         writer = writer,
         eval_result_log_path = os.path.join(args.ckpt_dir, 'result.tsv'),
-        eval_kwargs=dict(resolutions=args.resolutions, cell_type_col='cell_type'),
+        eval_kwargs=dict(resolutions=args.resolutions, cell_type_col='assigned_cluster'),
         clf_cutoff_ratio = args.clf_cutoff_ratio,
         clf_warmup_ratio = args.clf_warmup_ratio,
         min_clf_weight = args.min_clf_weight,

@@ -1,7 +1,7 @@
 # scNTImpute:single-cell Neural Topic Imputation Model
 scNTImpute是针对scRNA-seq数据进行插补的模型，有助提高单细胞RNA测序数据的下游分析等。无需任何安装，研究人员可以通过下载使用源代，对但scRNA-seq数据进行预处理，可以精准并有效地识别出脱落值，并对其进行准确插补。scNTImpute的完整描述及应用可在手稿"Imputation Methods for Single-Cell RNA-seq Data Using Neural Topic Models"中获得。这个repository包括使用说明，运行环境及数据格式等要求
-# 内容
-[Hello](#hello)
+# Content
+[Instructions](#instructions)
 
 [2 运行环境](#2 运行环境)
 

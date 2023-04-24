@@ -6,3 +6,5 @@ scNTImpute是针对scRNA-seq数据进行插补的模型。无需任何安装，�
 [2 运行环境](#readme)
 
 [3 数据格式](#readme)
+
+# 使用说明

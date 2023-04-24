@@ -22,4 +22,4 @@ anndata 0.8
 pandas 1.3
 
 # Data format
-scNTImpute需要输入一个细胞-基因表达矩阵，格式为AnnData对象。有关AnnData的详细说明可以在这里找到。
+scNTImpute需要输入一个细胞-基因表达矩阵，格式为AnnData对象。有关AnnData的详细介绍可在此处查看。

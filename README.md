@@ -10,7 +10,7 @@ scNTImpute是针对scRNA-seq数据进行插补的模型，有助提高单细胞R
 # 1 使用说明
 本模型采用Pyton语言编写，可将单scRNA-seq数据放入train_scNTImpute.py进行训练及插补。若要进行迁移学习可通过另一个文件来进行。启用GPU计算会显著提升性能，请在使用前安装支持GPU的PyTorch。手稿"Imputation Methods for Single-Cell RNA-seq Data Using Neural Topic Models"的源代码。
 
-# 2 运行环境
+# 2 运行环境(#readme)
 python 3.7
 
 PyTorch 1.11

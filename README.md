@@ -21,4 +21,4 @@ anndata 0.8
 pandas 1.3
 
 # Data format
-scNTImpute requires the input of a cell-gene expression matrix in the format of an AnnData object. A detailed description of AnnData can be found [here](https://anndata.readthedocs.io/en/latest/).
+scNTImpute requires the input of a cell-gene expression matrix in the format of an AnnData object. A detailed description of AnnData can be found [here](https://anndata.readthedocs.io/en/latest/).All datasets used are public datasets and the sources of the datasets can be viewed in detail in the manuscript.

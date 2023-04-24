@@ -22,5 +22,4 @@ anndata 0.8
 pandas 1.3
 
 # Data format
-scNTImpute需要输入一个细胞-基因表达矩阵，格式为AnnData对象。有关AnnData的详细介绍可在[此处]查看。
 scNTImpute requires the input of a cell-gene expression matrix in the format of an AnnData object. A detailed description of AnnData can be found [here](https://anndata.readthedocs.io/en/latest/).

@@ -36,13 +36,7 @@ def log_arguments(f):
 
 
 def initialize_logger(ckpt_dir=None, level=logging.DEBUG, logger=None) -> None:
-    """Initializes the scETM logger, or the provided logger.
-
-    Each time the function is called, close all file handlers of the scETM
-    logger and create one logging to "ckpt_dir/log.txt" if ckpt_dir is not
-    None.
-    If the scETM logger has no handlers, create a formatted stream handler.
-
+    """
     Args:
         ckpt_dir: directory to store the log file. If None, no file handler
             will be added to the scETM logger.

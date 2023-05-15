@@ -44,13 +44,7 @@ def evaluate(adata: ad.AnnData,
     random_state: Union[None, int, np.random.RandomState, np.random.Generator] = 0,
     umap_kwargs: dict = dict()
 ) -> Mapping[str, Union[float, None, Figure]]:
-    """Evaluates the clustering and batch correction performance of the given
-    embeddings, and optionally plots the embeddings.
-
-    Embeddings will be plotted if return_fig is True or plot_dir is provided.
-    When tensorboard_dir is provided, will also save the embeddings using a
-    tensorboard SummaryWriter.
-
+    """
     NOTE: Set n_jobs to 1 if you encounter pickling error.
 
     Args:
@@ -61,7 +55,6 @@ def evaluate(adata: ad.AnnData,
         resolutions: a sequence of resolutions used for clustering.
         clustering_method: clustering method used. Should be one of 'leiden' or
             'louvain'.
-
 
         cell_type_col: a key in adata.obs to the cell type column.
         batch_col: a key in adata.obs to the batch column.

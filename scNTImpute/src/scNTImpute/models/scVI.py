@@ -1,11 +1,7 @@
-from typing import Sequence, Union
-import anndata
+from typing import Sequence
 import numpy as np
-from scipy.sparse.base import spmatrix
 import torch
-from torch import autograd
 import logging
-from torch.distributions import kl_divergence
 import torch.nn as nn
 import torch.nn.functional as F
 from torch.distributions import Normal, Independent, NegativeBinomial
@@ -18,7 +14,6 @@ from scNTImpute.models.model_utils import (
 )
 
 _logger = logging.getLogger(__name__)
-
 
 class scVI(BaseCellModel):
 
@@ -147,7 +142,6 @@ class scVI(BaseCellModel):
             _, perm_logits = self.decode(z, s[perm_mask, :], data_dict)
             perm_pred_logit = self.recon_batch_clf(perm_logits.softmax(dim=-1))
             perm_ce = F.cross_entropy(perm_pred_logit, data_dict['batch_indices'][perm_mask])
-
 
         total_count, logits = self.decode(z, s, data_dict)
         nll = self.get_reconstruction_loss(cells_for_loss, total_count, logits).mean()

@@ -234,8 +234,7 @@ class ThreadedCellSampler(threading.Thread):
 class MultithreadedCellSampler:
     """A multithreaded iterable cell dataset for minibatch sampling.
     This class should be only used in training and when the #cells in the
-    dataset is larger than the batch size. In other cases, using CellSampler
-    would suffice.
+    dataset is larger than the batch size.
     Note that the shuffle parameter is fixed to True.
 
     Attributes
@@ -535,8 +534,7 @@ class GenesThreadedCellSampler(threading.Thread):
 class GenesMultithreadedCellSampler:
     """A multithreaded iterable cell dataset for minibatch sampling.
     This class should be only used in training and when the #cells in the
-    dataset is larger than the batch size. In other cases, using CellSampler
-    would suffice.
+    dataset is larger than the batch size.
     Note that the shuffle parameter is fixed to True.
 
     Attributes

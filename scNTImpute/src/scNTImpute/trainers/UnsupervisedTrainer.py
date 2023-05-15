@@ -215,7 +215,6 @@ class UnsupervisedTrainer:
         eval_kwargs: Union[None, dict] = None,
         **train_kwargs
     ) -> None:
-
         """Trains the model, optionally evaluates performance and logs results.
 
         Args:

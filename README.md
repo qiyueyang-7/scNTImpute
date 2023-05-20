@@ -22,6 +22,6 @@ Anndata 0.8
 Pandas 1.3
 
 # Data format
-scNTImpute requires the input of a cell-gene expression matrix in the format of an AnnData object, whereas the scRNA-seq dataset format is usually `.csv`or other forms. For the smoothness and convenience of use, we have completed the data conversion step in the main code. A detailed description of AnnData can be found [here](https://anndata.readthedocs.io/en/latest/).All datasets used are public datasets and the sources of the datasets can be viewed in detail in the manuscript.
+scNTImpute requires the input of a cell-gene expression matrix in the format of an AnnData object, whereas the scRNA-seq dataset format is usually `.csv`or other forms. For the smoothness and convenience of use, we have completed the data conversion step in the main code.Simply pass in scRNA-seq data (e.g. csv files) normally. A detailed description of AnnData can be found [here](https://anndata.readthedocs.io/en/latest/).All datasets used are public datasets and the sources of the datasets can be viewed in detail in the manuscript.
 # License
 The use of scNTInput follows the MIT License

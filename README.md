@@ -8,7 +8,7 @@ scNTImpute is a model for imputation of scRNA-seq data, helping to improve downs
 [Data format](#data-format)
 
 # Instructions
-The model is written in Pyton language and can be trained and imputed by putting single scRNA-seq data into `train_scNTImpute.py`. To perform transfer learning, this can be done via a separate file. Enabling GPU computing will significantly improve performance, please install PyTorch with GPU support before use.
+The model is written in Pyton language and can be trained and imputed by putting single scRNA-seq data into `train_scNTImpute.py`(script file in folder script). To perform transfer learning, this can be done via a separate file. Enabling GPU computing will significantly improve performance, please install PyTorch with GPU support before use.
 # Operating environment
 Python 3.7
 

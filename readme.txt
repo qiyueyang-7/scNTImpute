@@ -6,7 +6,7 @@ This repository includes instructions for use, operating environment and data fo
 
 # Folder data
 We uploaded a partial dataset (Mouse Pancreatic Islet data) for readers to reproduce in the form of cell-gene (.csv file) containing cell annotation information.
-The datasets used in the manuscript have been submitted on the GigaDB database.
+The sources of the dataset used in the manuscript have been submitted in the GigaDB database, and explanations have been provided in the data availability section of the manuscript.
 
 # Folder scripts
 Readers can realize scNTImpute and its transfer learning through two script files；train_scNTImpute.py and train_Transfer_learning.py.
